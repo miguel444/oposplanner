@@ -1,1 +1,79 @@
-/* You can add global styles to this file, and also import other style files */
+/* Importar los estilos de angular-calendar */
+@import '../node_modules/angular-calendar/css/angular-calendar.css';
+/* ----- Estilos personalizados para la aplicación ----- */
+
+/* Centrado del calendario */
+.calendar-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Estilo para la lista de tareas */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li.completed {
+  text-decoration: line-through;
+  color: #999;
+}
+
+/* Botón para añadir y eliminar tareas */
+button {
+  margin-left: 10px;
+  background-color: #5AA454;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #4e8a41;
+}
+
+/* Estilo para el gráfico de progreso */
+ngx-charts-bar-vertical {
+  margin: auto;
+  max-width: 800px;
+}
+
+h2 {
+  text-align: center;
+}
+
+/* Contenedor de resumen de tareas */
+.tasks-summary {
+  margin-top: 20px;
+}
+
+/* Inputs y formulario de tareas */
+input[type="text"] {
+  margin-right: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #5AA454;
+}
+
+/* Botones de control */
+button.add-task {
+  background-color: #4CAF50;
+}
+
