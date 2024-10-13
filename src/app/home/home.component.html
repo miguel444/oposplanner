@@ -1,0 +1,8 @@
+<app-card  *ngIf="!isLoading"></app-card>
+<app-spinner [isLoading]="isLoading"></app-spinner>
+
+  
+  <div  *ngIf="!isLoading" class="tasks-summary">
+    <app-task></app-task>
+  </div>
+  

@@ -1,0 +1,5 @@
+<div class="spinner-container" *ngIf="isLoading">
+  <img src="assets/spinner.png" alt="Loading..." class="spinner-image">
+  <p class="loading-text">Cargando...</p>
+  <mat-progress-bar bufferValue="100" [value]="progressValue" mode="determinate"></mat-progress-bar>
+</div>

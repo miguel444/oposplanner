@@ -1,0 +1,52 @@
+.carta-box {
+    margin: 100px;
+    margin-top: 50px;
+    width: 200px;
+    height: 75%;
+    position: relative;
+    perspective: 1000px;
+  
+    &:hover .carta {
+      transform: rotateY(180deg);
+    }
+  }
+  
+  .carta {
+    transform-style: preserve-3d;
+    transition: all 0.5s linear;
+    margin-top: 100px;
+    height: 260px;
+    width: 200px;
+
+  }
+  
+  .cara {
+    position: absolute;
+    backface-visibility: hidden;
+    border: 2px solid #141010;
+    border-radius: 10px;
+  
+    &.detras {
+      transform: rotateY(180deg);
+      height: 100%;
+      width: 100%;
+      
+    }
+  }
+  
+  .card {
+    background: #FFF;
+    display: block;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0px;
+    margin-top: 5em;
+    overflow: hidden;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: 'Roboto', sans-serif;
+    -webkit-transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
