@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SpinnerComponent } from './spinner/spinner.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     FormsModule,  // Para trabajar con formularios y [(ngModel)]
     BrowserAnimationsModule, 
     MatProgressBarModule,
-    MatProgressSpinnerModule // Necesario para animaciones en Angular
+    MatProgressSpinnerModule, // Necesario para animaciones en Angular,
+    MatButtonModule
   ],
   providers: [
     provideAnimationsAsync()
