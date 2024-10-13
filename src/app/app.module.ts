@@ -15,9 +15,11 @@ import { TaskComponent } from './task/task.component';
 import { FormsModule } from '@angular/forms'; // Para trabajar con ngModel
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { SpinnerComponent } from './spinner/spinner.component';
+import { LoadingComponent } from './loading/loading.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatButtonModule} from '@angular/material/button';
+import { NavbarComponent } from './navbar/navbar.component';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import {MatButtonModule} from '@angular/material/button';
     CardComponent,
     HomeComponent,
     TaskComponent,
-    SpinnerComponent,  ],
+    LoadingComponent,
+    NavbarComponent,  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -37,7 +40,8 @@ import {MatButtonModule} from '@angular/material/button';
     BrowserAnimationsModule, 
     MatProgressBarModule,
     MatProgressSpinnerModule, // Necesario para animaciones en Angular,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [
     provideAnimationsAsync()

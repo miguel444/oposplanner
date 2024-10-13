@@ -1,0 +1,25 @@
+.mat-toolbar {
+  background-color: black;
+  color: white;
+}
+
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+img {
+    width: 20vw;
+    height: auto; 
+}
+
+a {
+    font-size:large;
+    font-family: "Unicorn";
+    padding: 5px 10px; /* Relleno dentro de los botones */
+}
+
+.icon-display {
+    transform: scale(2);
+    color: white;
+ }
