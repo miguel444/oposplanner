@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+
+<div class="recompensas-container">
+    <h2>Recompensas Ganadas</h2>
+  
+    <table mat-table [dataSource]="recompensas" class="mat-elevation-z8">
+      <!-- Nombre de la recompensa -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Recompensa </th>
+        <td mat-cell *matCellDef="let recompensa"> {{recompensa.nombre}} </td>
+      </ng-container>
+  
+      <!-- Canjear columna -->
+      <ng-container matColumnDef="canjear">
+        <th mat-header-cell *matHeaderCellDef> Canjear </th>
+        <td mat-cell *matCellDef="let recompensa">
+          <button mat-raised-button color="primary" (click)="canjearRecompensa(recompensa)" [disabled]="recompensa.canjeada">
+            {{ recompensa.canjeada ? 'Canjeada' : 'Canjear' }}
+          </button>
+        </td>
+      </ng-container>
+  
+      <!-- Encabezado y filas -->
+      <tr mat-header-row *matHeaderRowDef="['nombre', 'canjear']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['nombre', 'canjear'];"></tr>
+    </table>
+  
+    <div *ngIf="recompensas.length === 0">
+      <p>No has ganado ninguna recompensa todavía.</p>
+    </div>
+  </div>
+  

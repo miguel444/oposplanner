@@ -20,6 +20,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatButtonModule} from '@angular/material/button';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatIconModule} from '@angular/material/icon';
+import { HelpMeComponent } from './help-me/help-me.component';
+import { RecompensasComponent } from './recompensas/recompensas.component';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -29,7 +32,9 @@ import {MatIconModule} from '@angular/material/icon';
     HomeComponent,
     TaskComponent,
     LoadingComponent,
-    NavbarComponent,  ],
+    NavbarComponent,
+    HelpMeComponent,
+    RecompensasComponent,  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -41,7 +46,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatProgressBarModule,
     MatProgressSpinnerModule, // Necesario para animaciones en Angular,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule
   ],
   providers: [
     provideAnimationsAsync()
