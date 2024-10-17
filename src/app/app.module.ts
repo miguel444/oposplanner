@@ -23,7 +23,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { HelpMeComponent } from './help-me/help-me.component';
 import { RecompensasComponent } from './recompensas/recompensas.component';
 import { MatTableModule } from '@angular/material/table';
-
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,8 @@ import { MatTableModule } from '@angular/material/table';
     MatProgressSpinnerModule, // Necesario para animaciones en Angular,
     MatButtonModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule
   ],
   providers: [
     provideAnimationsAsync()

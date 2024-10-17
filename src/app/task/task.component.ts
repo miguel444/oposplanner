@@ -1,41 +1,40 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.scss']
 })
-export class TaskComponent implements OnInit {
-  tasks: any[] = [];
-  newTask: string = '';
+export class TaskComponent {
+  // Listado de temas (simulado con algunos datos)
+  temas = [
+    { nombre: 'Historia Medieval', completado: false },
+    { nombre: 'Geografía Física', completado: true },
+    { nombre: 'Arte Renacentista', completado: false },
+    { nombre: 'Historia Contemporánea', completado: true }
+  ];
 
-  constructor() { }
+  // Columnas a mostrar en la tabla
+  displayedColumns: string[] = ['nombre', 'estado'];
 
-  ngOnInit(): void {
-    this.loadTasksFromStorage();
-  }
+  // Variable para almacenar los temas filtrados
+  temasFiltrados = [...this.temas];
 
-  loadTasksFromStorage() {
-    const storedTasks = localStorage.getItem('studyTasks');
-    if (storedTasks) {
-      this.tasks = JSON.parse(storedTasks);
+  // Filtro seleccionado por defecto es 'todos'
+  filtroSeleccionado = 'todos';
+
+  // Método para filtrar los temas
+  filtrarTemas() {
+    switch (this.filtroSeleccionado) {
+      case 'pendientes':
+        this.temasFiltrados = this.temas.filter(tema => !tema.completado);
+        break;
+      case 'completados':
+        this.temasFiltrados = this.temas.filter(tema => tema.completado);
+        break;
+      default:
+        this.temasFiltrados = [...this.temas]; // Por defecto muestra todos
+        break;
     }
-  }
-
-  saveTasksToStorage() {
-    localStorage.setItem('studyTasks', JSON.stringify(this.tasks));
-  }
-
-  addTask(): void {
-    if (this.newTask) {
-      this.tasks.push({ title: this.newTask, completed: false });
-      this.newTask = '';
-      this.saveTasksToStorage();
-    }
-  }
-
-  toggleCompletion(index: number): void {
-    this.tasks[index].completed = !this.tasks[index].completed;
-    this.saveTasksToStorage();
   }
 }
