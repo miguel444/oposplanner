@@ -1,9 +1,10 @@
 <!-- Componente de Tabs para las recompensas -->
-<h2 style="font-family: Unicorn;">Recompensas</h2>
+<h2 style="font-family: Unicorn;">Premios</h2>
 
+<div class="tabs-container">
 <mat-tab-group>
   <!-- Tab para Recompensas Canjeadas -->
-  <mat-tab label="Canjeadas">
+  <mat-tab label="Canjeados">
     <!-- Aquí mostramos las recompensas que tienen canjeado = true -->
     <table mat-table [dataSource]="canjeadas" class="mat-elevation-z8">
       <!-- Nombre de la recompensa -->
@@ -30,8 +31,10 @@
     <div *ngFor="let reward of pendientes" class="reward-pendiente">
       <h3>Recompensa disponible para canjear</h3>
       <button mat-raised-button color="primary" (click)="canjear(reward)">
+        <mat-icon>emoji_events</mat-icon>
         Canjear
       </button>
     </div>
   </mat-tab>
 </mat-tab-group>
+</div>

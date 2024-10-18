@@ -1,7 +1,10 @@
 <div class="temas-container">
   <!-- Botón para añadir un nuevo tema -->
   <div class="header">
-    <button mat-raised-button color="primary">Añadir un nuevo tema</button>
+    <div class="add-tema-container">
+      <button mat-raised-button class="add-tema-btn">Añadir tema</button>
+    </div>
+
 
     <!-- Filtro para seleccionar estado de los temas -->
     <mat-form-field appearance="fill" class="filter-select">
@@ -15,8 +18,13 @@
   </div>
 
   <!-- Tabla para mostrar los temas filtrados -->
-  <table mat-table [dataSource]="temasFiltrados" class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- Columna de nombre del tema -->
+    <ng-container matColumnDef="numero">
+      <th mat-header-cell *matHeaderCellDef> Número </th>
+      <td mat-cell *matCellDef="let tema"> {{ tema.numero }} </td>
+    </ng-container>
+
     <ng-container matColumnDef="nombre">
       <th mat-header-cell *matHeaderCellDef> Nombre </th>
       <td mat-cell *matCellDef="let tema"> {{ tema.nombre }} </td>
@@ -25,11 +33,35 @@
     <!-- Columna de estado del tema -->
     <ng-container matColumnDef="estado">
       <th mat-header-cell *matHeaderCellDef> Estado </th>
-      <td mat-cell *matCellDef="let tema"> {{ tema.completado ? 'Completado' : 'Pendiente' }} </td>
+      <td mat-cell *matCellDef="let tema">
+        <ng-container *ngIf="tema.completado; else pendiente">
+          <mat-icon class="icon-display-completed" matTooltip="Completado">check_small</mat-icon>
+        </ng-container>
+        <ng-template #pendiente>
+          <mat-icon class="icon-display-pending" matTooltip="Pendiente">timer</mat-icon>
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let tema">
+        <button [disabled]="tema.completado"
+          [ngClass]="{'icon-completado': tema.completado, 'icon-pendiente': !tema.completado}">
+          <mat-icon (click)="completarTema(tema)" matTooltip="Completar tema"
+            [ngClass]="{'icon-completado': tema.completado, 'icon-pendiente': !tema.completado}">check_circle</mat-icon>
+        </button>
+        <button>
+          <mat-icon (click)="borrarTema(tema)" class="icon-display-delete" matTooltip="Eliminar tema">delete</mat-icon>
+        </button>
+
+      </td>
     </ng-container>
 
     <!-- Encabezados y filas de la tabla -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+  </mat-paginator>
 </div>

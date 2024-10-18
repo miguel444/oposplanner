@@ -1,0 +1,66 @@
+  
+  .card-content img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  }
+  
+  .card-content p {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .close-btn {
+    position: absolute; /* Posicionamos el botón absolutamente respecto al contenedor */
+    top: 10px; /* A 10px del borde superior */
+    right: 10px; /* A 10px del borde derecho */
+    color: white;
+    background-color: gray ;
+    z-index: 1; /* Aseguramos que el botón esté siempre por encima del contenido */
+  }
+
+  .card-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+    width:60%;
+    height: 70%;
+    cursor: pointer !important;
+    margin-bottom: 5%;
+    margin-top: 5%;
+  }
+  
+  .card-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  
+  .flipped {
+    transform: rotateY(180deg); // Gira la carta 180 grados
+  }
+  
+  .card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; // Oculta el reverso al estar de cara
+  }
+  
+  
+
+  .card-back {
+    transform: rotateY(180deg); // Reverso de la carta rotado inicialmente
+  }
+  
+  p {
+    text-align: center;
+    font-family: "Unicorn";
+  }
+  
+

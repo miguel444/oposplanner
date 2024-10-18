@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { Recompensa } from '../interfaces/recompensa';
+import { MatDialog } from '@angular/material/dialog';
+import { MostrarRecompensaComponent } from '../mostrar-recompensa/mostrar-recompensa.component';
 
-interface Recompensa {
-  nombre: string;
-  canjeado: boolean;
-  fechaCanjeo?: Date; // Fecha es opcional
-}
 
 @Component({
   selector: 'app-recompensas',
   templateUrl: './recompensas.component.html',
   styleUrl: './recompensas.component.scss'
 })
-export class RecompensasComponent implements OnInit{
+export class RecompensasComponent implements OnInit {
+
+  constructor(public dialog: MatDialog) {
+
+  }
+
   // Simulamos un array de recompensas que podrían venir de un servicio
   recompensas = [
     { nombre: 'Recompensa 1', canjeado: true, fechaCanjeo: new Date('2023-05-01') },
@@ -35,11 +38,14 @@ export class RecompensasComponent implements OnInit{
 
   // Método para canjear una recompensa pendiente
   canjear(recompensa: Recompensa): void {
-    // Aquí agregas la lógica para cambiar el estado de la recompensa
-    recompensa.canjeado = true;
-    recompensa.fechaCanjeo = new Date(); // Asignamos la fecha actual
-    // Actualizamos las listas
-    this.ngOnInit();
+    this.dialog.open(MostrarRecompensaComponent, {
+      width: '30%',
+      height: '70%',// Puedes ajustar el tamaño del modal
+      data: {
+        imagen: '/assets/spinner.png',  // Ruta de la imagen
+        descripcion: 'Este es el texto debajo de la imagen'  // Texto debajo de la imagen
+      }
+    });
   }
 
 }

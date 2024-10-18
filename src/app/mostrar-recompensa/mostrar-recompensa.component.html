@@ -1,0 +1,24 @@
+<button mat-icon-button (click)="onClose()" class="close-btn">
+  <mat-icon>close</mat-icon>
+</button>
+<p style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Haz click en la carta para descubrir el premio!</p>
+<!-- Aquí puedes reemplazar la imagen por el contenido que desees -->
+<div class="card-container" (click)="toggleFlip()">
+  <div class="card-content" [class.flipped]="isFlipped">
+    <!-- Cara de la carta -->
+    <div class="card-face card-front">
+      <img src="/assets/carta-cara.png" alt="Cara de la carta" height="100%" width="100%">
+    </div>
+
+    <!-- Reverso de la carta -->
+    <div class="card-face card-back">
+      <img [src]="data.imagen" alt="Reverso de la carta">
+    </div>
+  </div>
+
+
+  <!--<img [src]="data.imagen" alt="Image placeholder">-->
+
+</div>
+<p *ngIf="isFlipped">{{ data.descripcion }}</p>
+

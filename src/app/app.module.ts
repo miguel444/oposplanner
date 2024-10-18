@@ -24,6 +24,11 @@ import { HelpMeComponent } from './help-me/help-me.component';
 import { RecompensasComponent } from './recompensas/recompensas.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MostrarRecompensaComponent } from './mostrar-recompensa/mostrar-recompensa.component';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -34,7 +39,8 @@ import { MatSelectModule } from '@angular/material/select';
     LoadingComponent,
     NavbarComponent,
     HelpMeComponent,
-    RecompensasComponent,  ],
+    RecompensasComponent,
+    MostrarRecompensaComponent,  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -48,7 +54,11 @@ import { MatSelectModule } from '@angular/material/select';
     MatButtonModule,
     MatIconModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatTooltipModule
   ],
   providers: [
     provideAnimationsAsync()

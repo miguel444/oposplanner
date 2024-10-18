@@ -9,3 +9,24 @@
 table {
   width: 100%;
 }
+
+button {
+  background-color:  #fd94bd !important;
+  color: white !important;
+  font-family: "Unicorn";
+}
+
+h2,h3 {
+font-family: "Unicorn";
+font-weight: 100;
+}
+
+.tabs-container {
+  max-width: 95%; /* Define el ancho máximo que deseas para las tabs */
+  margin: 0 auto; /* Centra el contenedor */
+  padding: 20px; /* Añade un poco de espacio interno */
+}
+
+.mat-tab-group {
+  width: 100%; /* El tab-group ocupará todo el ancho del contenedor limitado */
+}
