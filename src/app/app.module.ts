@@ -29,6 +29,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MostrarRecompensaComponent } from './mostrar-recompensa/mostrar-recompensa.component';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatInputModule,
     MatFormFieldModule,
     MatPaginatorModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatBadgeModule
   ],
   providers: [
     provideAnimationsAsync()

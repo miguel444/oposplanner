@@ -30,3 +30,8 @@ font-weight: 100;
 .mat-tab-group {
   width: 100%; /* El tab-group ocupará todo el ancho del contenedor limitado */
 }
+
+.custom-badge .mat-badge-content {
+  top: -10px;  /* Mueve el badge hacia arriba */
+  right: -10px; /* Mueve el badge hacia la derecha */
+}

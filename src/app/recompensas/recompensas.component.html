@@ -27,6 +27,11 @@
 
   <!-- Tab para Recompensas Pendientes -->
   <mat-tab label="Pendientes">
+    <ng-template mat-tab-label>
+      Pendientes
+      <span [matBadge]="pendientes.length" [matBadgeHidden]="pendientes.length===0" matBadgeColor="accent" matBadgeOverlap="false" class="custom-badge" matBadgeSize="small"> <!-- mat-badge agregado -->
+      </span>
+    </ng-template>
     <!-- Aquí mostramos solo un botón de canjear para recompensas pendientes -->
     <div *ngFor="let reward of pendientes" class="reward-pendiente">
       <h3>Recompensa disponible para canjear</h3>

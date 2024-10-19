@@ -18,7 +18,7 @@ export class RecompensasComponent implements OnInit {
   // Simulamos un array de recompensas que podrían venir de un servicio
   recompensas = [
     { nombre: 'Recompensa 1', canjeado: true, fechaCanjeo: new Date('2023-05-01') },
-    { nombre: 'Recompensa 2', canjeado: false },
+    { nombre: 'Recompensa 2', canjeado: false, imagen: '/assets/merienda.png', descripcion: "Hola" },
     { nombre: 'Recompensa 3', canjeado: true, fechaCanjeo: new Date('2023-06-15') },
     { nombre: 'Recompensa 4', canjeado: false }
   ];
@@ -38,14 +38,32 @@ export class RecompensasComponent implements OnInit {
 
   // Método para canjear una recompensa pendiente
   canjear(recompensa: Recompensa): void {
-    this.dialog.open(MostrarRecompensaComponent, {
+    const dialogRef = this.dialog.open(MostrarRecompensaComponent, {
       width: '30%',
-      height: '70%',// Puedes ajustar el tamaño del modal
+      height: '70%',
       data: {
-        imagen: '/assets/spinner.png',  // Ruta de la imagen
-        descripcion: 'Este es el texto debajo de la imagen'  // Texto debajo de la imagen
+        recompensa  
       }
     });
+
+     // Suscribirse al evento 'afterClosed' para manejar el resultado
+  dialogRef.componentInstance.canjearPremioEvento.subscribe((recompensa: Recompensa) => {
+    this.marcarPremioComoCanjeado(recompensa);
+  });
+
   }
+
+
+// Método para marcar el premio como canjeado
+marcarPremioComoCanjeado(recompensa: Recompensa) {
+  recompensa.canjeado = true;
+  this.actualizarListas();
+}
+
+// Actualizar las listas de premios canjeados y no canjeados
+actualizarListas() {
+  this.pendientes = this.pendientes.filter(p => !p.canjeado);
+  this.canjeadas.push(...this.canjeadas.filter(p => p.canjeado));
+}
 
 }

@@ -12,7 +12,7 @@
 
     <!-- Reverso de la carta -->
     <div class="card-face card-back">
-      <img [src]="data.imagen" alt="Reverso de la carta">
+      <img [src]="data.recompensa.imagen" alt="Reverso de la carta">
     </div>
   </div>
 
@@ -20,5 +20,5 @@
   <!--<img [src]="data.imagen" alt="Image placeholder">-->
 
 </div>
-<p *ngIf="isFlipped">{{ data.descripcion }}</p>
+<p *ngIf="isFlipped">{{ data.recompensa.descripcion }}</p>
 
