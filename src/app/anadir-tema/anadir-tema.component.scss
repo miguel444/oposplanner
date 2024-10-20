@@ -1,0 +1,37 @@
+.full-width {
+  width: 100%; // Asegura que los inputs ocupen todo el ancho
+}
+
+mat-form-field {
+  margin-bottom: 16px; // Espaciado entre los inputs
+}
+
+.mat-dialog-title,
+h2 {
+  text-align: center; // Centrar el título
+  font-family: "Unicorn" !important;
+}
+
+.save-button {
+  background-color: #fd94bd; // Color verde para el botón "Guardar"
+  color: white; // Texto blanco
+  margin-left: 8px; // Espaciado entre los botones
+  font-family: "Unicorn" !important;
+
+  &:hover {
+    background-color: #c47090; // Color más oscuro al pasar el ratón
+  }
+}
+
+.cancel-button {
+  font-family: "Unicorn" !important;
+  background-color: #a0aca1; // Color verde para el botón "Guardar"
+  color: white !important; // Color rojo para el botón "Cancelar"
+  margin-right: 8px; // Espaciado entre los botones
+
+  &:hover {
+    background-color: #808581; // Color más oscuro al pasar el ratón
+  }
+  
+}
+

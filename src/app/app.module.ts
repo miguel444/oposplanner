@@ -30,6 +30,9 @@ import { MostrarRecompensaComponent } from './mostrar-recompensa/mostrar-recompe
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatBadgeModule} from '@angular/material/badge';
+import { AnadirTemaComponent } from './anadir-tema/anadir-tema.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     NavbarComponent,
     HelpMeComponent,
     RecompensasComponent,
-    MostrarRecompensaComponent,  ],
+    MostrarRecompensaComponent,
+    AnadirTemaComponent,  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -60,7 +64,9 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatFormFieldModule,
     MatPaginatorModule,
     MatTooltipModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatDialogModule,
+    MatCardModule
   ],
   providers: [
     provideAnimationsAsync()

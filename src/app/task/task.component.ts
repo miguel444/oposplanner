@@ -1,18 +1,25 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import { Tema } from '../interfaces/tema';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { AnadirTemaComponent } from '../anadir-tema/anadir-tema.component';
 
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.scss']
 })
-export class TaskComponent implements AfterViewInit{
+export class TaskComponent implements AfterViewInit, OnInit{
 
-  dataSource = new MatTableDataSource<Tema>(TEMAS.sort((a, b) => a.numero - b.numero));
+  dataSource = new MatTableDataSource<Tema>();
 
-  // Listado de temas (simulado con algunos datos)
+
+  ngOnInit(): void {
+    this.dataSource = new MatTableDataSource<Tema>(TEMAS.sort((a, b) => a.numero - b.numero));
+  }
+
+  constructor(public dialog: MatDialog) {}
 
 
   @ViewChild(MatPaginator)
@@ -24,9 +31,7 @@ export class TaskComponent implements AfterViewInit{
 
   // Columnas a mostrar en la tabla
   displayedColumns: string[] = ['numero','nombre', 'estado','acciones'];
-
-  // Variable para almacenar los temas filtrados
-  temasFiltrados = [...this.dataSource.data];
+;
 
   // Filtro seleccionado por defecto es 'todos'
   filtroSeleccionado = 'todos';
@@ -56,6 +61,17 @@ export class TaskComponent implements AfterViewInit{
         break;
     }
   }
+
+    // Método para abrir el diálogo
+    openDialog(): void {
+      const dialogRef = this.dialog.open(AnadirTemaComponent);
+  
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.dataSource.data = [...this.dataSource.data,result].sort((a, b) => a.numero - b.numero);
+        }
+      });
+    }
 
   
 }

@@ -2,7 +2,9 @@
   <!-- Botón para añadir un nuevo tema -->
   <div class="header">
     <div class="add-tema-container">
-      <button mat-raised-button class="add-tema-btn">Añadir tema</button>
+      <button mat-raised-button class="add-tema-btn" (click)="openDialog()">
+        <mat-icon>add</mat-icon>Añadir tema
+      </button>
     </div>
 
 

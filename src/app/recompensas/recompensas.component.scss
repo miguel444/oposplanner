@@ -35,3 +35,22 @@ font-weight: 100;
   top: -10px;  /* Mueve el badge hacia arriba */
   right: -10px; /* Mueve el badge hacia la derecha */
 }
+
+.grid-container {
+  display: flex;
+  justify-content: center;  // Centrar horizontalmente
+  align-items: center;      // Centrar verticalmente
+  height: 70vh;            // Altura completa de la ventana
+  flex-wrap: wrap;
+  margin-top: 2%;      
+}
+
+.premio-card {
+  margin: 20px; 
+  max-width: 20%;
+  text-align: center;
+}
+
+
+
+

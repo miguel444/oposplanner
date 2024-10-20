@@ -11,16 +11,24 @@ import { MostrarRecompensaComponent } from '../mostrar-recompensa/mostrar-recomp
 })
 export class RecompensasComponent implements OnInit {
 
+  slideConfig = {
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
+  
   constructor(public dialog: MatDialog) {
 
   }
 
   // Simulamos un array de recompensas que podrían venir de un servicio
   recompensas = [
-    { nombre: 'Recompensa 1', canjeado: true, fechaCanjeo: new Date('2023-05-01') },
+    { nombre: 'Recompensa 1', canjeado: true, fechaCanjeo: new Date('2023-05-01'),imagen: '/assets/merienda.png' },
     { nombre: 'Recompensa 2', canjeado: false, imagen: '/assets/merienda.png', descripcion: "Hola" },
-    { nombre: 'Recompensa 3', canjeado: true, fechaCanjeo: new Date('2023-06-15') },
-    { nombre: 'Recompensa 4', canjeado: false }
+    { nombre: 'Recompensa 3', canjeado: true, fechaCanjeo: new Date('2023-06-15'),imagen: '/assets/merienda.png' },
+    { nombre: 'Recompensa 4', canjeado: false },
+    { nombre: 'Recompensa 3', canjeado: true, fechaCanjeo: new Date('2023-06-15'),imagen: '/assets/merienda.png' },
+    { nombre: 'Recompensa 3', canjeado: true, fechaCanjeo: new Date('2023-06-15'),imagen: '/assets/merienda.png' },
+    { nombre: 'Recompensa 3', canjeado: true, fechaCanjeo: new Date('2023-06-15'),imagen: '/assets/merienda.png' }
   ];
 
   // Listas filtradas
@@ -32,7 +40,7 @@ export class RecompensasComponent implements OnInit {
 
   ngOnInit(): void {
     // Filtramos las recompensas
-    this.canjeadas = this.recompensas.filter(r => r.canjeado === true);
+    this.canjeadas = this.recompensas.filter(r => r.canjeado === true).sort((a, b) => new Date(b.fechaCanjeo).getTime() - new Date(a.fechaCanjeo).getTime());
     this.pendientes = this.recompensas.filter(r => r.canjeado === false);
   }
 
@@ -42,28 +50,30 @@ export class RecompensasComponent implements OnInit {
       width: '30%',
       height: '70%',
       data: {
-        recompensa  
+        recompensa
       }
     });
 
-     // Suscribirse al evento 'afterClosed' para manejar el resultado
-  dialogRef.componentInstance.canjearPremioEvento.subscribe((recompensa: Recompensa) => {
-    this.marcarPremioComoCanjeado(recompensa);
-  });
+    // Suscribirse al evento 'afterClosed' para manejar el resultado
+    dialogRef.componentInstance.canjearPremioEvento.subscribe((recompensa: Recompensa) => {
+      this.marcarPremioComoCanjeado(recompensa);
+    });
 
   }
 
 
-// Método para marcar el premio como canjeado
-marcarPremioComoCanjeado(recompensa: Recompensa) {
-  recompensa.canjeado = true;
-  this.actualizarListas();
-}
+  // Método para marcar el premio como canjeado
+  marcarPremioComoCanjeado(recompensa: Recompensa) {
+    recompensa.canjeado = true;
+    recompensa.fechaCanjeo = new Date();
+    this.actualizarListas();
+  }
 
-// Actualizar las listas de premios canjeados y no canjeados
-actualizarListas() {
-  this.pendientes = this.pendientes.filter(p => !p.canjeado);
-  this.canjeadas.push(...this.canjeadas.filter(p => p.canjeado));
-}
+  // Actualizar las listas de premios canjeados y no canjeados
+  actualizarListas() {
+    this.canjeadas = this.recompensas.filter(r => r.canjeado === true).sort((a, b) => new Date(b.fechaCanjeo).getTime() - new Date(a.fechaCanjeo).getTime());
+    this.pendientes = this.recompensas.filter(r => r.canjeado === false);
+  }
+  
 
 }

@@ -6,23 +6,15 @@
   <!-- Tab para Recompensas Canjeadas -->
   <mat-tab label="Canjeados">
     <!-- Aquí mostramos las recompensas que tienen canjeado = true -->
-    <table mat-table [dataSource]="canjeadas" class="mat-elevation-z8">
-      <!-- Nombre de la recompensa -->
-      <ng-container matColumnDef="nombre">
-        <th mat-header-cell *matHeaderCellDef> Nombre </th>
-        <td mat-cell *matCellDef="let reward"> {{ reward.nombre }} </td>
-      </ng-container>
-
-      <!-- Columna de Fecha -->
-      <ng-container matColumnDef="fechaCanjeo">
-        <th mat-header-cell *matHeaderCellDef> Fecha de Canjeo </th>
-        <td mat-cell *matCellDef="let reward"> {{ reward.fechaCanjeo | date }} </td>
-      </ng-container>
-
-      <!-- Definición de las columnas -->
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+    <div class="grid-container">
+      <mat-card *ngFor="let premio of canjeadas" class="premio-card">
+        <img mat-card-image [src]="premio.imagen" alt="Premio imagen">
+        <mat-card-content>
+          <h3>{{ premio.nombre }}</h3>
+          <p>Canjeado en: {{ premio.fechaCanjeo | date: 'dd/MM/yyyy' }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </mat-tab>
 
   <!-- Tab para Recompensas Pendientes -->
