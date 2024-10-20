@@ -22,13 +22,13 @@ export class RecompensasComponent implements OnInit {
 
   // Simulamos un array de recompensas que podrían venir de un servicio
   recompensas = [
-    { nombre: 'Recompensa 1', canjeado: true, fechaCanjeo: new Date('2023-05-01'),imagen: '/assets/merienda.png' },
+    { nombre: 'Recompensa 1', canjeado: true, fechaCanjeo: new Date('2023-05-01'),imagen: '/assets/cena.png' },
     { nombre: 'Recompensa 2', canjeado: false, imagen: '/assets/merienda.png', descripcion: "Hola" },
-    { nombre: 'Recompensa 3', canjeado: true, fechaCanjeo: new Date('2023-06-15'),imagen: '/assets/merienda.png' },
+    { nombre: 'Recompensa 3', canjeado: true, fechaCanjeo: new Date('2023-06-15'),imagen: '/assets/chuches.png' },
     { nombre: 'Recompensa 4', canjeado: false },
-    { nombre: 'Recompensa 3', canjeado: true, fechaCanjeo: new Date('2023-06-15'),imagen: '/assets/merienda.png' },
-    { nombre: 'Recompensa 3', canjeado: true, fechaCanjeo: new Date('2023-06-15'),imagen: '/assets/merienda.png' },
-    { nombre: 'Recompensa 3', canjeado: true, fechaCanjeo: new Date('2023-06-15'),imagen: '/assets/merienda.png' }
+    { nombre: 'Recompensa 3', canjeado: true, fechaCanjeo: new Date('2023-06-15'),imagen: '/assets/cine.png' },
+    { nombre: 'Recompensa 3', canjeado: true, fechaCanjeo: new Date('2023-06-15'),imagen: '/assets/ropa.png' },
+    { nombre: 'Recompensa 3', canjeado: true, fechaCanjeo: new Date('2023-06-15'),imagen: '/assets/motivacion.png' }
   ];
 
   // Listas filtradas

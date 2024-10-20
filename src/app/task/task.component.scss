@@ -31,13 +31,10 @@ button {
   font-family: "Unicorn";
 }
 
-/* Flexbox para alinear el input y el botón */
 .add-tema-container {
   display: flex;
   align-items: center;
-  /* Alinear verticalmente el input y el botón */
   gap: 10%;
-  /* Espacio entre el input y el botón */
 }
 
 .icon-display-completed {
@@ -52,16 +49,11 @@ button {
   color: rgb(119, 118, 118) !important;
 }
 
-
-
 table {
   button {
     background-color: transparent !important;
-    /* Elimina cualquier fondo */
     box-shadow: none !important;
-    /* Elimina cualquier sombra */
     border: none !important;
-    /* Elimina cualquier borde */
   }
 }
 
@@ -69,13 +61,19 @@ table {
   color: gray;
   pointer-events: none !important;
   cursor: not-allowed !important;
-  /* Cambia el cursor a "no permitido" */
-  /* Deshabilita el clic si ya está completado */
 }
 
 .icon-pendiente {
   color: green;
-  /* Cambia a verde si el tema está completado */
+}
 
+.centered-cell {
+  text-align: center;
+}
 
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
 }

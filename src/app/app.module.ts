@@ -33,6 +33,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { AnadirTemaComponent } from './anadir-tema/anadir-tema.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
+import { VentanaConfirmacionComponent } from './ventana-confirmacion/ventana-confirmacion.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {MatCardModule} from '@angular/material/card';
     HelpMeComponent,
     RecompensasComponent,
     MostrarRecompensaComponent,
-    AnadirTemaComponent,  ],
+    AnadirTemaComponent,
+    VentanaConfirmacionComponent,  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
