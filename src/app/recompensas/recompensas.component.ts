@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Recompensa } from '../interfaces/recompensa';
 import { MatDialog } from '@angular/material/dialog';
 import { MostrarRecompensaComponent } from '../mostrar-recompensa/mostrar-recompensa.component';
@@ -9,42 +9,31 @@ import { MostrarRecompensaComponent } from '../mostrar-recompensa/mostrar-recomp
   templateUrl: './recompensas.component.html',
   styleUrl: './recompensas.component.scss'
 })
-export class RecompensasComponent implements OnInit {
+export class RecompensasComponent implements OnInit,OnDestroy {
 
-  slideConfig = {
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
   
   constructor(public dialog: MatDialog) {
 
   }
 
-  // Simulamos un array de recompensas que podrían venir de un servicio
-  recompensas = [
-    { nombre: 'Recompensa 1', canjeado: true, fechaCanjeo: new Date('2023-05-01'),imagen: '/assets/cena.png' },
-    { nombre: 'Recompensa 2', canjeado: false, imagen: '/assets/merienda.png', descripcion: "Hola" },
-    { nombre: 'Recompensa 3', canjeado: true, fechaCanjeo: new Date('2023-06-15'),imagen: '/assets/chuches.png' },
-    { nombre: 'Recompensa 4', canjeado: false },
-    { nombre: 'Recompensa 3', canjeado: true, fechaCanjeo: new Date('2023-06-15'),imagen: '/assets/cine.png' },
-    { nombre: 'Recompensa 3', canjeado: true, fechaCanjeo: new Date('2023-06-15'),imagen: '/assets/ropa.png' },
-    { nombre: 'Recompensa 3', canjeado: true, fechaCanjeo: new Date('2023-06-15'),imagen: '/assets/motivacion.png' }
-  ];
-
-  // Listas filtradas
   canjeadas: Recompensa[] = [];
   pendientes: Recompensa[] = [];
+  recompensas: Recompensa[] = [];
 
-  // Columnas que se mostrarán en la tabla de Canjeadas
   displayedColumns: string[] = ['nombre', 'fechaCanjeo'];
 
   ngOnInit(): void {
-    // Filtramos las recompensas
-    this.canjeadas = this.recompensas.filter(r => r.canjeado === true).sort((a, b) => new Date(b.fechaCanjeo).getTime() - new Date(a.fechaCanjeo).getTime());
-    this.pendientes = this.recompensas.filter(r => r.canjeado === false);
+    let recompensasActualesString = localStorage.getItem('recompensas');
+    let recompensasCargadas = recompensasActualesString ? JSON.parse(recompensasActualesString) : [];
+    this.recompensas = recompensasCargadas;
+    this.canjeadas = this.recompensas.filter((r: Recompensa) => r.canjeado === true).sort((a:Recompensa, b:Recompensa) => new Date(b.fechaCanjeo).getTime() - new Date(a.fechaCanjeo).getTime());
+    this.pendientes = this.recompensas.filter((r: Recompensa) => r.canjeado === false);
   }
 
-  // Método para canjear una recompensa pendiente
+  ngOnDestroy(): void {
+    localStorage.setItem('recompensas', JSON.stringify(this.recompensas));
+  }
+
   canjear(recompensa: Recompensa): void {
     const dialogRef = this.dialog.open(MostrarRecompensaComponent, {
       width: '30%',

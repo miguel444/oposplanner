@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { Tema } from '../interfaces/tema';
 import { MatTableDataSource } from '@angular/material/table';
@@ -11,16 +11,19 @@ import { VentanaConfirmacionComponent } from '../ventana-confirmacion/ventana-co
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.scss']
 })
-export class TaskComponent implements AfterViewInit, OnInit {
+export class TaskComponent implements AfterViewInit, OnInit, OnDestroy {
 
   dataSource = new MatTableDataSource<Tema>();
 
+  constructor(public dialog: MatDialog) { }
+
 
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource<Tema>(TEMAS.sort((a, b) => a.numero - b.numero));
+    let temasActualesString = localStorage.getItem('temas');
+    let temasCargados = temasActualesString ? JSON.parse(temasActualesString) : [];
+    this.dataSource = new MatTableDataSource<Tema>(temasCargados.sort((a:Tema, b:Tema) => a.numero - b.numero));
   }
 
-  constructor(public dialog: MatDialog) { }
 
 
   @ViewChild(MatPaginator)
@@ -28,6 +31,14 @@ export class TaskComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+  }
+
+  ngOnDestroy(): void {
+    this.guardarRecompensas();
+  }
+
+  guardarRecompensas(): void {
+    localStorage.setItem('temas', JSON.stringify(this.dataSource.data));
   }
 
   // Columnas a mostrar en la tabla
@@ -87,9 +98,16 @@ export class TaskComponent implements AfterViewInit, OnInit {
     });
   }
 
+  anadirRepaso(tema: Tema): void {
+    tema.repasos = (tema.repasos || 0) + 1;
+    this.dataSource.data = [...this.dataSource.data];
+  }
+
 
 }
 
 const TEMAS: Tema[] = [
- 
+  {numero: 3, nombre:"Historia", completado: false},
+  {numero: 4, nombre:"Geografia", completado: true},
+
 ];

@@ -69,6 +69,10 @@
         <button>
           <mat-icon  (click)="openConfirmDialog(tema)" class="icon-display-delete" matTooltip="Eliminar tema">delete</mat-icon>
         </button>
+        <button [disabled]="!tema.completado"
+        [ngClass]="{'icon-completado': !tema.completado, 'icon-display-repaso': tema.completado}">
+          <mat-icon  [ngClass]="{'icon-completado': !tema.completado, 'icon-display-repaso': tema.completado}"  (click)="anadirRepaso(tema)" matTooltip="Añadir repaso">add_comment</mat-icon>
+        </button>
 
       </td>
     </ng-container>
