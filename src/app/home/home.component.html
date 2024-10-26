@@ -27,10 +27,10 @@
     <p>La oposición es una carrera de fondo, lo importante es llegar a la meta, no ser el primero.</p>
   </div>
   <div class="progress-bar">
-    <div class="progress-fill" [style.width.%]="progressPercentage"></div>
+    <div class="progress-fill" [style.width.%]="porcentajeProgreso"></div>
 
     <!-- Muñeco del progreso -->
-    <div class="progress-character"  [style.left.%]="progressPercentage - 2">
+    <div  *ngIf="!finalizado" class="progress-character"  [style.left.%]="porcentajeProgreso - 2">
       <img src="assets/start.png" alt="Muñeco" class="character-icon" />
     </div>
 
@@ -41,7 +41,7 @@
   </div>
 
   <div class="progress-text">
-    Día {{ currentDay }}/{{ totalDays }}
+    Día {{ diaActual }}/{{ totalDias }}
   </div>
 </div>
 

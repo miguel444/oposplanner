@@ -1,3 +1,5 @@
+<h1 *ngIf="dataSource.data.length > 0">Temas</h1>
+
 <div class="temas-container" >
   <!-- Botón para añadir un nuevo tema -->
   <div class="header">
@@ -6,8 +8,6 @@
         <mat-icon>add</mat-icon>Añadir tema
       </button>
     </div>
-
-    <h2 style="font-family: Unicorn;"  *ngIf="dataSource.data.length > 0">Temas</h2>
 
 
     <!-- Filtro para seleccionar estado de los temas -->

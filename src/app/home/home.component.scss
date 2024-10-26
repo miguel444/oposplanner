@@ -75,7 +75,7 @@ img {
   /* Altura de la barra */
   background-color: #e0e0e0;
   /* Color de fondo */
-  border-radius: 10px;
+  border-radius: 30px;
   z-index: 0
 }
 
@@ -86,7 +86,7 @@ img {
   height: 100%;
   background-color: #fd94bd;
   /* Color de progreso */
-  border-radius: 10px 0 0 10px;
+  border-radius: 30px 0 0 30px;
   /* Bordes redondeados */
   transition: width 0.3s ease;
   /* Transición suave */
@@ -112,7 +112,7 @@ img {
 
 .goal-flag {
   position: absolute;
-  right: -35px;
+  right: -70px;
   /* Ajusta para superponer la bandera */
   top: -35px;
   /* Posición vertical de la bandera */

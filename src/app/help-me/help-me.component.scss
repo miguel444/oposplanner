@@ -1,0 +1,131 @@
+.ayuda-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pergamino {
+    background: #f4e2c3;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    margin: 4% 0;
+    border: 1px solid #c1a582;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    font-family: 'Caveat', cursive;  // Usa una fuente manuscrita si prefieres
+    border-radius: 8px;
+    text-align: center;
+
+    h2 {
+      font-family: "Unicorn";
+      font-weight: 100;
+    }
+  }
+  
+  .mini-museo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 3%;
+  }
+  
+  .foto-marco {
+    background-color: #fff;
+    padding: 10px;
+    border: 2px solid #b29769;
+    border-radius: 10px;
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.2);
+    max-width: 150px;
+    text-align: center;
+  }
+  
+  .foto {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s;
+  }
+  
+  .foto:hover {
+    transform: scale(1.05);
+  }
+
+  .titulo-museo {
+    font-family: "Unicorn";
+  }
+
+  .h-divider {
+    margin: auto;
+    margin: 2% 0 3% 0;
+    width: 80%;
+    position: relative;
+  }
+  
+  .h-divider .shadow {
+    overflow: hidden;
+    height: 20px;
+  }
+  
+  .h-divider .shadow:after {
+    content: '';
+    display: block;
+    margin: -25px auto 0;
+    width: 100%;
+    height: 25px;
+    border-radius: 125px/12px;
+    box-shadow: 0 0 8px black;
+  }
+  
+  .h-divider .text {
+    width: 100px;
+    height: 45px;
+    padding: 10px;
+    position: absolute;
+    bottom: 100%;
+    margin-bottom: -33px;
+    left: 50%;
+    margin-left: -60px;
+    border-radius: 100%;
+    box-shadow: 0 2px 4px #999;
+    background: white;
+  }
+  
+  .h-divider .text i {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
+    border-radius: 100%;
+    border: 1px dashed #aaa;
+    text-align: center;
+    line-height: 50px;
+    font-style: normal;
+    color: #999;
+  }
+  
+  .h-divider .text2 {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    bottom: 100%;
+    margin-bottom: -35px;
+    left: 50%;
+    margin-left: -25px;
+    border-radius: 100%;
+    box-shadow: 0 2px 4px #999;
+    background: white;
+  }
+  
+  .h-divider img {
+    position: absolute;
+    margin: 4px;
+    max-width: 60px;
+    border-radius: 100%;
+    border: 1px dashed #aaa;
+  }
+  
+  .lottie {
+    height: 7em;
+  }
+  

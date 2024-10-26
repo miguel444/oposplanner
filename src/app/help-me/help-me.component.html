@@ -1,1 +1,48 @@
-<p>help-me works!</p>
+<div class="ayuda-container">
+  <div class="pergamino">
+    <h2>Bienvenida a nuestro rinconcito</h2>
+    <p>
+      Esta vez el cumpleaños es un poco diferente, llevo tiempo trabajando en esta web para intentar amenizarte el
+      camino que has emprendido este año.
+      Como se puede ver he mejorado desde la primera web cutre que te hice que salia un QR con un Tweet y también
+      respecto a la web de los 5 Sentidos
+      (te pondré el enlace por si quieres rememorar).
+    </p>
+    <p>
+      Estoy segurisimo que vas a conseguir tus objetivos, pero como todo en la vida, nada es gratis y hay que esforzarse
+      por ello. Sé que el camino el complicado
+      y que pasarás por algunos baches, pero el objetivo de esta sección es devolverte las ganas y la motivación en esos
+      momentos de bajón para que puedas recordar
+      que este esfuerzo te está acercando cada día un poco más a lo que quieres conseguir. No estás sola en este camino,
+      y aunque a veces parezca difícil, quiero que sepas que tienes toda la fuerza para lograrlo.
+
+      Quiero que veas cada rincón de esta web como un pedacito de apoyo que te he dejado. Desde la sección de temas,
+      para ayudar a organizarte,
+      hasta “nuestro museo” con nuestras fotos, que no es más que un reflejo de todas las aventuras y recuerdos que
+      hemos construido juntos.
+      Esta no es solo una página web, es un espacio donde puedes detenerte un momento y recargar fuerzas.
+    </p>
+    <p>
+      Ojalá cada vez que entres aquí encuentres un poquito de calma, motivación y, sobre todo, la certeza de que estoy
+      aquí contigo en cada paso.<br>
+      Te amo con lo más grande de mi corazón!
+      <br>
+    </p>
+      <div class="lottie">
+      <ng-lottie [options]="lottieOptions"></ng-lottie>
+    </div>
+
+    
+  </div>
+  <div class="h-divider">
+    <div class="shadow"></div>
+    <div class="text2"><img src="assets/escultura.png" /></div>
+  </div> <!-- Museo de Fotos -->
+  <h2 class="titulo-museo">Bienvenida a nuestro Museo</h2>
+  <div class="mini-museo">
+
+    <div *ngFor="let foto of fotos" class="foto-marco">
+      <img [src]="foto.url" [alt]="foto.alt" class="foto">
+    </div>
+  </div>
+</div>
