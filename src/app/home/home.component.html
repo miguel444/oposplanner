@@ -1,3 +1,48 @@
-<div>
-  <img src="assets/home.jpg">
+<div class="home">
+  <img src="assets/home.jpg" >
 </div>
+<div class="barra-negra">
+  <div class="personaje">
+    <img src="assets/picasso.jpg" alt="Personaje 1">
+    <b class="frase">Pablo Picasso</b>
+    <p class="frase">"El arte limpia del alma el polvo de la vida cotidiana."</p>
+  </div>
+  <div class="personaje">
+    <img src="assets/vinci.png" alt="Personaje 2">
+    <b class="frase">Leonardo Da Vinci</b>
+    <p class="frase">"La simplicidad es la máxima sofisticación."</p>
+  </div>
+  <div class="personaje">
+    <img src="assets/noche.jpg" alt="Personaje 3">
+    <b class="frase">Vicent Van Gogh</b>
+    <p class="frase">"Sueño con pintar y luego pinto mis sueños."</p>
+  </div>
+</div>
+<div class="progress-container">
+  <div class="motivational-quote">
+    <h1>¡Sigue adelante, cada paso cuenta!</h1>
+    <div class="lottie">
+    <ng-lottie [options]="lottieOptions"></ng-lottie>
+  </div>
+    <p>La oposición es una carrera de fondo, lo importante es llegar a la meta, no ser el primero.</p>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-fill" [style.width.%]="progressPercentage"></div>
+
+    <!-- Muñeco del progreso -->
+    <div class="progress-character"  [style.left.%]="progressPercentage - 2">
+      <img src="assets/start.png" alt="Muñeco" class="character-icon" />
+    </div>
+
+    <!-- Bandera de meta -->
+    <div class="goal-flag">
+      <img src="assets/meta.png" alt="Meta" class="flag-icon" />
+    </div>
+  </div>
+
+  <div class="progress-text">
+    Día {{ currentDay }}/{{ totalDays }}
+  </div>
+</div>
+
+

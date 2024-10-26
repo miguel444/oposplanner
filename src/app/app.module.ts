@@ -33,7 +33,16 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { AnadirTemaComponent } from './anadir-tema/anadir-tema.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { VentanaConfirmacionComponent } from './ventana-confirmacion/ventana-confirmacion.component';
+import { LottieComponent, provideLottieOptions } from 'ngx-lottie';
+import player from 'lottie-web';
+// Export this factory to be used by ngx-lottie
+export function playerFactory() {
+  return player;
+}
+
+
 
 @NgModule({
   declarations: [
@@ -47,7 +56,7 @@ import { VentanaConfirmacionComponent } from './ventana-confirmacion/ventana-con
     RecompensasComponent,
     MostrarRecompensaComponent,
     AnadirTemaComponent,
-    VentanaConfirmacionComponent,  ],
+    VentanaConfirmacionComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -68,10 +77,15 @@ import { VentanaConfirmacionComponent } from './ventana-confirmacion/ventana-con
     MatTooltipModule,
     MatBadgeModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    LottieComponent,
+    MatGridListModule
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideLottieOptions({
+      player: playerFactory,
+    })
   ],
   bootstrap: [AppComponent]
 })
