@@ -24,8 +24,5 @@ export class MostrarRecompensaComponent {
     }
   }
 
-  onClose(): void {
-    this.dialogRef.close();
-  }
 
 }

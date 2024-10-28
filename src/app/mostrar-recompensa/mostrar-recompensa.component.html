@@ -1,7 +1,10 @@
-<button mat-icon-button (click)="onClose()" class="close-btn">
+<div class="header">
+<button [mat-dialog-close]="true" class="close-btn">
   <mat-icon>close</mat-icon>
 </button>
-<p style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Haz click en la carta para descubrir el premio!</p>
+<p class="title">Haz click en la carta para descubrir el premio!</p>
+
+</div>
 <!-- Aquí puedes reemplazar la imagen por el contenido que desees -->
 <div class="card-container" (click)="toggleFlip()">
   <div class="card-content" [class.flipped]="isFlipped">
@@ -20,5 +23,5 @@
   <!--<img [src]="data.imagen" alt="Image placeholder">-->
 
 </div>
-<p *ngIf="isFlipped">{{ data.recompensa.descripcion }}</p>
+<p class="descripcion" *ngIf="isFlipped">{{ data.recompensa.descripcion }}</p>
 

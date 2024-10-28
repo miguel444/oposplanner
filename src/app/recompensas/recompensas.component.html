@@ -1,5 +1,5 @@
 <!-- Componente de Tabs para las recompensas -->
-<h1>Premios</h1>
+<h1 class="fancy"><mat-icon>emoji_events</mat-icon> Premios</h1>
 
 <div class="tabs-container">
 <mat-tab-group>
@@ -10,7 +10,6 @@
       <mat-card *ngFor="let premio of canjeadas" class="premio-card">
         <img mat-card-image [src]="premio.imagen" alt="Premio imagen">
         <mat-card-content>
-          <h3>{{ premio.nombre }}</h3>
           <p>Canjeado en: {{ premio.fechaCanjeo | date: 'dd/MM/yyyy' }}</p>
         </mat-card-content>
       </mat-card>

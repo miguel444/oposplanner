@@ -1,12 +1,23 @@
+<h1 class="fancy">
+  <mat-icon>help</mat-icon> 
+  Ayuda
+</h1>
+
 <div class="ayuda-container">
   <div class="pergamino">
-    <h2>Bienvenida a nuestro rinconcito</h2>
+    <h2>Bienvenida a nuestro rinconcito </h2>
+    <mat-icon>home</mat-icon>
+    
+
     <p>
       Esta vez el cumpleaños es un poco diferente, llevo tiempo trabajando en esta web para intentar amenizarte el
       camino que has emprendido este año.
       Como se puede ver he mejorado desde la primera web cutre que te hice que salia un QR con un Tweet y también
-      respecto a la web de los 5 Sentidos
-      (te pondré el enlace por si quieres rememorar).
+      respecto a la web de los 5 Sentidos: <br><br>
+      <a mat-button href="https://miguel444.github.io/Caja5sentidos/">
+        <mat-icon>redeem</mat-icon>Web de los 5 Sentidos
+      </a>
+
     </p>
     <p>
       Estoy segurisimo que vas a conseguir tus objetivos, pero como todo en la vida, nada es gratis y hay que esforzarse
@@ -28,21 +39,52 @@
       Te amo con lo más grande de mi corazón!
       <br>
     </p>
-      <div class="lottie">
+    <div class="lottie">
       <ng-lottie [options]="lottieOptions"></ng-lottie>
     </div>
 
-    
+
   </div>
   <div class="h-divider">
     <div class="shadow"></div>
     <div class="text2"><img src="assets/escultura.png" /></div>
   </div> <!-- Museo de Fotos -->
   <h2 class="titulo-museo">Bienvenida a nuestro Museo</h2>
-  <div class="mini-museo">
+</div>
 
-    <div *ngFor="let foto of fotos" class="foto-marco">
-      <img [src]="foto.url" [alt]="foto.alt" class="foto">
+<div class="container collage2">
+  <div class="grid-container">
+    <div class="item item1">
+      <img src="assets/images/foto-4.webp" alt="image">
+    </div>
+    <div class="item item2">
+      <img src="assets/images/foto-1.webp" alt="image">
+    </div>
+    <div class="item item3">
+      <img src="assets/images/foto-2.webp" alt="image">
+    </div>
+    <div class="item item4">
+      <img src="assets/images/foto.webp" alt="image">
+    </div>
+    <div class="item item5">
+      <img src="assets/images/foto-3.webp" alt="image">
+    </div>
+    <div class="item item6">
+      <img src="assets/images/foto-5.webp" alt="image">
+    </div>
+    <div class="item item7">
+      <img src="assets/images/foto-6.webp" alt="image">
     </div>
   </div>
+</div>
+<div class="pepe">
+  <span style="--i:1"><img src="assets/images/foto-7.webp"></span>
+  <span style="--i:2"><img src="assets/images/foto-8.webp"></span>
+  <span style="--i:3"><img src="assets/images/foto-9.webp"></span>
+  <span style="--i:4"><img src="assets/images/foto-10.webp"></span>
+  <span style="--i:5"><img src="assets/images/foto-11.webp"></span>
+  <span style="--i:6"><img src="assets/images/foto-16.webp"></span>
+  <span style="--i:7"><img src="assets/images/foto-13.webp"></span>
+  <span style="--i:8"><img src="assets/images/foto-15.webp"></span>
+
 </div>

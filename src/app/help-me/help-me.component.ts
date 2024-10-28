@@ -13,8 +13,13 @@ export class HelpMeComponent {
   };
 
   fotos = [
-    { url: 'assets/noche.jpg', alt: 'Foto 1', descripcion: 'Un recuerdo especial' },
-    { url: 'assets/picasso.jpg', alt: 'Foto 2', descripcion: 'Momentos inolvidables' },
-    { url: 'assets/vinci.png', alt: 'Foto 3', descripcion: 'Aventuras juntos' },
+    { url: 'assets/images/foto.webp'},
+    { url: 'assets/images/foto-1.webp'},
+    { url: 'assets/images/foto-2.webp' },
+    { url: 'assets/images/foto-3.webp' },
+    { url: 'assets/images/foto-4.webp' },
+    { url: 'assets/images/foto-5.webp' },
+    { url: 'assets/images/foto-6.webp' },
+    { url: 'assets/images/foto-8.webp' },
   ];
 }
