@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Recompensa } from '../interfaces/recompensa';
 import { MatDialog } from '@angular/material/dialog';
 import { MostrarRecompensaComponent } from '../mostrar-recompensa/mostrar-recompensa.component';
+import { AnimationOptions } from 'ngx-lottie';
 
 
 @Component({
@@ -11,6 +12,9 @@ import { MostrarRecompensaComponent } from '../mostrar-recompensa/mostrar-recomp
 })
 export class RecompensasComponent implements OnInit,OnDestroy {
 
+  lottieOptions: AnimationOptions = {
+    path: 'assets/animations/girl.json',
+  };
   
   constructor(public dialog: MatDialog) {
 
@@ -27,7 +31,7 @@ export class RecompensasComponent implements OnInit,OnDestroy {
     let recompensasCargadas = recompensasActualesString ? JSON.parse(recompensasActualesString) : [];
     this.recompensas = recompensasCargadas;
     this.canjeadas = this.recompensas.filter((r: Recompensa) => r.canjeado === true).sort((a:Recompensa, b:Recompensa) => new Date(b.fechaCanjeo).getTime() - new Date(a.fechaCanjeo).getTime());
-    this.pendientes = this.recompensas.filter((r: Recompensa) => r.canjeado === false);
+    this.pendientes = this.recompensas.filter((r: Recompensa) => r.canjeado === false && r.disponible===true);
   }
 
   ngOnDestroy(): void {
@@ -61,7 +65,7 @@ export class RecompensasComponent implements OnInit,OnDestroy {
   // Actualizar las listas de premios canjeados y no canjeados
   actualizarListas() {
     this.canjeadas = this.recompensas.filter(r => r.canjeado === true).sort((a, b) => new Date(b.fechaCanjeo).getTime() - new Date(a.fechaCanjeo).getTime());
-    this.pendientes = this.recompensas.filter(r => r.canjeado === false);
+    this.pendientes = this.recompensas.filter(r => r.canjeado === false  && r.disponible===true);
   }
   
 

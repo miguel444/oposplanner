@@ -37,6 +37,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { VentanaConfirmacionComponent } from './ventana-confirmacion/ventana-confirmacion.component';
 import { LottieComponent, provideLottieOptions } from 'ngx-lottie';
 import player from 'lottie-web';
+import { ToastrModule } from 'ngx-toastr';
+import { provideToastr } from 'ngx-toastr';
+
 // Export this factory to be used by ngx-lottie
 export function playerFactory() {
   return player;
@@ -79,12 +82,17 @@ export function playerFactory() {
     MatDialogModule,
     MatCardModule,
     LottieComponent,
-    MatGridListModule
+    MatGridListModule,
+    ToastrModule,
   ],
   providers: [
     provideAnimationsAsync(),
     provideLottieOptions({
       player: playerFactory,
+    }),
+    provideToastr({
+      positionClass: 'toast-bottom-center',
+      closeButton: true,
     })
   ],
   bootstrap: [AppComponent]

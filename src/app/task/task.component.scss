@@ -116,3 +116,6 @@ img {
   margin-inline: auto;
 }
 
+::ng-deep #toast-container > div {
+  width: 500px;
+}

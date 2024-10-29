@@ -89,3 +89,31 @@ h3 {
   color: #000 !important;
 }
 
+.lottie {
+  height: 300px;
+}
+
+.no-premios-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%; /* Ancho amplio para el card */
+  max-width: 800px;
+  margin: 5% auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra del card */
+  border-radius: 20px;
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.text-section {
+  flex: 1;
+  text-align: center;
+}
+

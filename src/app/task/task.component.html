@@ -1,4 +1,4 @@
-<h1 *ngIf="dataSource.data.length > 0" class="fancy"><mat-icon>book</mat-icon> Temas</h1>
+<h1 *ngIf="temasFiltrados.data.length > 0" class="fancy"><mat-icon>book</mat-icon> Temas</h1>
 
 <div class="temas-container" >
   <!-- Botón para añadir un nuevo tema -->
@@ -10,10 +10,9 @@
     </div>
 
 
-    <!-- Filtro para seleccionar estado de los temas -->
-    <mat-form-field appearance="fill" class="filter-select" *ngIf="dataSource.data.length > 0">
+    <mat-form-field appearance="fill" class="filter-select" *ngIf="temasFiltrados.data.length > 0">
       <mat-label>Filtrar por</mat-label>
-      <mat-select [(value)]="filtroSeleccionado" (selectionChange)="filtrarTemas()">
+      <mat-select [(value)]="filtroSeleccionado" (selectionChange)="applyFilter()">
         <mat-option value="todos">Todos</mat-option>
         <mat-option value="pendientes">Pendientes</mat-option>
         <mat-option value="completados">Completados</mat-option>
@@ -21,12 +20,12 @@
     </mat-form-field>
   </div>
 
-  <div *ngIf="dataSource.data.length === 0">
+  <div *ngIf="temasFiltrados.data.length === 0">
     <img src="assets/no_temas.jpg">
   </div>
 
   <!-- Tabla para mostrar los temas filtrados -->
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="dataSource.data.length > 0">
+  <table mat-table [dataSource]="temasFiltrados" class="mat-elevation-z8" *ngIf="temasFiltrados.data.length > 0">
     <!-- Columna de nombre del tema -->
     <ng-container matColumnDef="numero">
       <th mat-header-cell *matHeaderCellDef class="centered-cell"> Número </th>
@@ -81,6 +80,6 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements" *ngIf="dataSource.data.length > 0">
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements" *ngIf="temasFiltrados.data.length > 0">
   </mat-paginator>
 </div>

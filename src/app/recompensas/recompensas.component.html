@@ -23,6 +23,19 @@
       <span [matBadge]="pendientes.length" [matBadgeHidden]="pendientes.length===0" matBadgeColor="accent" matBadgeOverlap="false" class="custom-badge" matBadgeSize="small"> <!-- mat-badge agregado -->
       </span>
     </ng-template>
+    <mat-card class="no-premios-card" *ngIf="pendientes.length === 0">
+      <div class="card-content">
+        <!-- Columna izquierda para el título y mensaje -->
+        <div class="text-section">
+          <h2>¡Oh, no hay premios disponibles!</h2>
+          <p>¡Pero sigue participando para conseguirlos!</p>
+          <p style="font-size:2em">😭</p>
+        </div>
+    <div class="lottie"> 
+    <ng-lottie [options]="lottieOptions"></ng-lottie>
+    </div>
+  </div>
+  </mat-card>
     <!-- Aquí mostramos solo un botón de canjear para recompensas pendientes -->
     <div *ngFor="let reward of pendientes" class="reward-pendiente">
       <h3>Recompensa disponible para canjear</h3>
