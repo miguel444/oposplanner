@@ -1,6 +1,8 @@
-<h1 *ngIf="temasFiltrados.data.length > 0" class="fancy"><mat-icon>book</mat-icon> Temas</h1>
+<h1 *ngIf="temasFiltrados.data.length > 0" class="fancy">
+  <mat-icon>book</mat-icon> Temas
+</h1>
 
-<div class="temas-container" >
+<div class="temas-container">
   <!-- Botón para añadir un nuevo tema -->
   <div class="header">
     <div class="add-tema-container">
@@ -66,11 +68,13 @@
             [ngClass]="{'icon-completado': tema.completado, 'icon-pendiente': !tema.completado}">check_circle</mat-icon>
         </button>
         <button>
-          <mat-icon  (click)="openConfirmDialog(tema)" class="icon-display-delete" matTooltip="Eliminar tema">delete</mat-icon>
+          <mat-icon (click)="openConfirmDialog(tema)" class="icon-display-delete" matTooltip="Eliminar tema">delete
+          </mat-icon>
         </button>
         <button [disabled]="!tema.completado"
-        [ngClass]="{'icon-completado': !tema.completado, 'icon-display-repaso': tema.completado}">
-          <mat-icon  [ngClass]="{'icon-completado': !tema.completado, 'icon-display-repaso': tema.completado}"  (click)="anadirRepaso(tema)" matTooltip="Añadir repaso">add_comment</mat-icon>
+          [ngClass]="{'icon-completado': !tema.completado, 'icon-display-repaso': tema.completado}">
+          <mat-icon [ngClass]="{'icon-completado': !tema.completado, 'icon-display-repaso': tema.completado}"
+            (click)="anadirRepaso(tema)" matTooltip="Añadir repaso">add_comment</mat-icon>
         </button>
 
       </td>
@@ -80,6 +84,14 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements" *ngIf="temasFiltrados.data.length > 0">
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements"
+    *ngIf="temasFiltrados.data.length > 0">
   </mat-paginator>
+</div>
+<div *ngIf="temasFiltrados.data.length > 0" class="scallop-up"></div>
+<div  *ngIf="temasFiltrados.data.length > 0" class="colour-block">
+  <mat-card class="graficas">
+    <h2>Gráfica de los temas</h2>
+    <app-temas-grafica [temas]="temasFiltrados.data"></app-temas-grafica>
+  </mat-card>
 </div>

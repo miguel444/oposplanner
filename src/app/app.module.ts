@@ -39,12 +39,12 @@ import { LottieComponent, provideLottieOptions } from 'ngx-lottie';
 import player from 'lottie-web';
 import { ToastrModule } from 'ngx-toastr';
 import { provideToastr } from 'ngx-toastr';
+import { BaseChartDirective, provideCharts, withDefaultRegisterables } from 'ng2-charts';
+import { TemasGraficaComponent } from './temas-grafica/temas-grafica.component';
 
-// Export this factory to be used by ngx-lottie
 export function playerFactory() {
   return player;
 }
-
 
 
 @NgModule({
@@ -59,7 +59,8 @@ export function playerFactory() {
     RecompensasComponent,
     MostrarRecompensaComponent,
     AnadirTemaComponent,
-    VentanaConfirmacionComponent ],
+    VentanaConfirmacionComponent,
+    TemasGraficaComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -84,6 +85,7 @@ export function playerFactory() {
     LottieComponent,
     MatGridListModule,
     ToastrModule,
+    BaseChartDirective
   ],
   providers: [
     provideAnimationsAsync(),
@@ -93,7 +95,8 @@ export function playerFactory() {
     provideToastr({
       positionClass: 'toast-bottom-center',
       closeButton: true,
-    })
+    }),
+    provideCharts(withDefaultRegisterables())
   ],
   bootstrap: [AppComponent]
 })

@@ -18,17 +18,10 @@ export class TaskComponent implements AfterViewInit, OnInit, OnDestroy {
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
-
   temasFiltrados = new MatTableDataSource<Tema>();
-
-  temas = new MatTableDataSource<Tema>;
-
   displayedColumns: string[] = ['numero', 'nombre', 'numero_repasos', 'estado', 'acciones'];
-
   filtroSeleccionado = 'todos';
-
   recompensas: Recompensa[] = [];
-
 
   constructor(public dialog: MatDialog, private toastr: ToastrService) { }
 
@@ -50,12 +43,15 @@ export class TaskComponent implements AfterViewInit, OnInit, OnDestroy {
 
     let temasActualesString = localStorage.getItem('temas');
     let temasCargados = temasActualesString ? JSON.parse(temasActualesString) : [];
-    this.temasFiltrados = new MatTableDataSource<Tema>(temasCargados.sort((a: Tema, b: Tema) => a.numero - b.numero));;
+    this.temasFiltrados = new MatTableDataSource<Tema>(temasCargados.sort((a: Tema, b: Tema) => a.numero - b.numero));
+
 
     this.temasFiltrados.filterPredicate = (data: Tema, filter: string) => {
       if (filter === 'todos') return true;
       return filter === 'completados' ? data.completado : !data.completado;
     };
+
+
   }
 
 
@@ -76,17 +72,18 @@ export class TaskComponent implements AfterViewInit, OnInit, OnDestroy {
 
   completarTema(temaCompletado: Tema) {
     temaCompletado.completado = true;
+    temaCompletado.repasos=0;
     this.temasFiltrados.data = [...this.temasFiltrados.data];
 
     let numeroCompletados: number = this.temasFiltrados.data.filter(d => d.completado).length;
     this.recompensas.forEach(r => {
       if (r.temas_para_desbloquear === numeroCompletados && !r.canjeado && !r.disponible) {
-          r.disponible=true;
-          this.showSuccess();
+        r.disponible = true;
+        this.showSuccess();
       }
 
     });
-  
+
   }
 
   borrarTema(temaAEliminar: Tema) {
