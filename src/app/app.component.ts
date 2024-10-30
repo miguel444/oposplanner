@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
     }
 
     const today = new Date();
-    const targetDate = new Date(today.getFullYear(), 9, 30);
+    const targetDate = new Date(today.getFullYear(), 10, 4);
 
     if (today.getDate() === targetDate.getDate() && today.getMonth() === targetDate.getMonth()) {
       this.openBirthdayDialog();
