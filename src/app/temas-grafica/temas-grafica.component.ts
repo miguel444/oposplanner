@@ -16,18 +16,17 @@ export class TemasGraficaComponent implements OnInit, OnChanges  {
     responsive: true,
     scales: {
       x: {
-        type: 'category', // O 'linear' dependiendo de tu caso
+        type: 'category', 
         title: {
           display: false,
-          text: 'Temas', // Título del eje X
+          text: 'Temas',
         },
       },
       y: {
         title: {
-          display: false,
-          text: 'Número de Repasos', // Título del eje Y
+          display: false, 
         },
-        beginAtZero: true, // Empieza en cero
+        beginAtZero: true, 
       },
     },
   };

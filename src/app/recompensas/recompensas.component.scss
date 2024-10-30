@@ -1,9 +1,14 @@
 .reward-pendiente {
-  margin: 20px;
+  margin: 2% auto;
   padding: 15px;
   border: 2px solid #ccc;
-  border-radius: 8px;
   text-align: center;
+  box-shadow: 10px 7px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 table {
@@ -14,6 +19,7 @@ button {
   background-color: #fd94bd !important;
   color: white !important;
   font-family: "Unicorn";
+  width:50%;
 }
 
 h1,
@@ -115,5 +121,35 @@ h3 {
 .text-section {
   flex: 1;
   text-align: center;
+}
+
+
+.premio-pendiente {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: 19px 20px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+}
+
+.regalo{
+  height: 130px;
+}
+
+
+.or-spacer-vertical {
+  
+  .mask { 
+    overflow:hidden; width:20px; height:200px; 
+    //outline:1px solid pink;
+  }
+
+  &.right .mask:before { 
+    content:''; 
+    display:block; margin-left:20px;
+    width:20px; height:100%; 
+    border-radius:12px / 125px; 
+    box-shadow:0 0 8px black;
+  }
 }
 

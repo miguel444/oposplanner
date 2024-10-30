@@ -41,6 +41,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { provideToastr } from 'ngx-toastr';
 import { BaseChartDirective, provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { TemasGraficaComponent } from './temas-grafica/temas-grafica.component';
+import { FelicitacionComponent } from './felicitacion/felicitacion.component';
 
 export function playerFactory() {
   return player;
@@ -60,7 +61,8 @@ export function playerFactory() {
     MostrarRecompensaComponent,
     AnadirTemaComponent,
     VentanaConfirmacionComponent,
-    TemasGraficaComponent ],
+    TemasGraficaComponent,
+    FelicitacionComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,

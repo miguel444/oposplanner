@@ -38,11 +38,20 @@
   </mat-card>
     <!-- Aquí mostramos solo un botón de canjear para recompensas pendientes -->
     <div *ngFor="let reward of pendientes" class="reward-pendiente">
-      <h3>Recompensa disponible para canjear</h3>
-      <button mat-raised-button color="primary" (click)="canjear(reward)">
-        <mat-icon>emoji_events</mat-icon>
-        Canjear
-      </button>
+      <div>
+        <h3>Recompensa disponible para canjear</h3>
+        <button mat-raised-button color="primary" (click)="canjear(reward)">
+          <mat-icon>emoji_events</mat-icon>
+          Canjear
+        </button>
+      </div>
+      <div class="or-spacer-vertical right">
+        <div class="mask"></div>
+      </div>
+      <div class="regalo">
+      <ng-lottie [options]="lottieOptionsBox"></ng-lottie>
+    </div>
+      
     </div>
   </mat-tab>
 </mat-tab-group>

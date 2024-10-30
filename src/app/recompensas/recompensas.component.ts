@@ -15,6 +15,11 @@ export class RecompensasComponent implements OnInit,OnDestroy {
   lottieOptions: AnimationOptions = {
     path: 'assets/animations/girl.json',
   };
+
+  lottieOptionsBox: AnimationOptions = {
+    path: 'assets/animations/meme.json',
+  };
+  
   
   constructor(public dialog: MatDialog) {
 
