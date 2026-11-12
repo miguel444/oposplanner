@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AnimationOptions } from 'ngx-lottie';
 import 'zone.js';
 
@@ -8,7 +9,27 @@ import 'zone.js';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit, OnDestroy {
+  @ViewChild('mensajeBienvenida', { static: true })
+  mensajeBienvenida!: TemplateRef<unknown>;
+
+  private mensajeDialog?: MatDialogRef<unknown>;
+
+  ngOnInit(): void {
+    this.mensajeDialog = this.dialog.open(this.mensajeBienvenida, {
+      width: '680px',
+      maxWidth: 'calc(100vw - 32px)',
+      maxHeight: 'calc(100dvh - 32px)',
+      disableClose: true,
+      ariaLabel: 'Mensaje para Lucia Maria',
+      ariaDescribedBy: 'mensaje-bienvenida-texto',
+      autoFocus: '.mensaje-cerrar',
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.mensajeDialog?.close();
+  }
 
   lottieOptions: AnimationOptions = {
     path: 'assets/animations/cat.json',
@@ -20,7 +41,7 @@ export class HomeComponent {
   finalizado: boolean = false;
 
 
-  constructor() {
+  constructor(private dialog: MatDialog) {
     const inicio = new Date(2024, 9, 30); // 30 de octubre de 2024
     const fin = new Date(2025, 5, 30);    // 30 de junio de 2025
 

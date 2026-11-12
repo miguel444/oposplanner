@@ -142,3 +142,64 @@ img {
 .lottie {
   height: 5em;
 }
+.mensaje-bienvenida {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100dvh - 32px);
+  box-sizing: border-box;
+  border: 2px solid #fd94bd;
+  background: #fff8fb;
+
+  .mensaje-texto {
+    min-height: 0;
+    max-height: none;
+    padding: 28px 28px 0;
+    color: #51434a;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+
+    p {
+      margin: 0 0 18px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+      color: #87465f;
+      font-weight: 500;
+    }
+  }
+
+  .mensaje-acciones {
+    flex-shrink: 0;
+    justify-content: center;
+    padding: 20px 24px 24px;
+  }
+
+  .mensaje-cerrar {
+    min-width: 130px;
+    min-height: 44px;
+    margin: 0;
+    border-radius: 22px;
+    background-color: #fd94bd;
+    color: #492435;
+    font-family: 'Unicorn', sans-serif;
+    font-size: 20px;
+
+    &:hover {
+      background-color: #f57eae;
+    }
+
+    &:focus-visible {
+      outline: 2px solid #87465f;
+      outline-offset: 3px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .mensaje-bienvenida .mensaje-texto {
+    padding: 22px 20px 0;
+  }
+}

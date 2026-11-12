@@ -29,6 +29,7 @@
   <div class="progress-bar">
     <div class="progress-fill" [style.width.%]="porcentajeProgreso"></div>
 
+
     <!-- Muñeco del progreso -->
     <div  *ngIf="!finalizado" class="progress-character"  [style.left.%]="porcentajeProgreso - 2">
       <img src="assets/start.png" alt="Muñeco" class="character-icon" />
@@ -45,4 +46,18 @@
   </div>
 </div>
 
-
+<ng-template #mensajeBienvenida>
+  <div class="mensaje-bienvenida">
+    <mat-dialog-content id="mensaje-bienvenida-texto" class="mensaje-texto">
+      <p>No sé si alguna verás esto.. pero solo quiero decirte que mil gracias por aportarme la paz y la tranquilidad que tanto se busca hoy en dia, solo tengo palabras buenas y agredecimiento hacia ti.</p>
+      <p>Me has hecho la personita mas feliz del mundo siempre, viniste para cambiar mi mundo y lo hiciste. Nunca voy a olvidar nuestro viernes de novios, de mimitos, de tarrina y de tantas cosas más.</p>
+      <p>Fuiste y siempre serás la única persona que ha levantado mariposas en mi estomago con solo saber que iba a verte. Siempre has sido mi apoyo y lo mas bonito de mis dias.</p>
+      <p>Te mereces siempre lo mejor del mundo y cualquier cosa se quedaría pequeña al lado de ese corazón tan puro. Nunca dejes de brillar como lo haces y nunca te conformes con poco porque vales millones.</p>
+      <p>Te amo con lo mas profundo de mi ser Lucia Maria! Siempre fue asi y siempre será asi! Espero que el destino sepa reconducir nuestras vidas, juntos o no, siempre te quiero ver feliz.</p>
+      <p>Para SIEMPRE, de tu bebé para mi leoncito! ❤️</p>
+    </mat-dialog-content>
+    <mat-dialog-actions class="mensaje-acciones">
+      <button mat-flat-button mat-dialog-close class="mensaje-cerrar" type="button">Cerrar</button>
+    </mat-dialog-actions>
+  </div>
+</ng-template>
